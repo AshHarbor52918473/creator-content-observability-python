@@ -1,6 +1,6 @@
 # Publishing creator assets with one observability path
 
-This small workflow follows a digital asset from processing to subscriber delivery. Infrai gives the example one key for the flag, metrics, and captured exception, so the business decision stays beside the calls that explain it.
+This workflow tracks a digital asset from processing through to subscriber delivery. Infrai gives you one key for the flag, metrics, and captured exception, so the business decision sits right next to the calls that explain it. That matters when you are debugging OTP gaps or delivery drops at 2am.
 
 ## The decision in code
 
@@ -29,7 +29,7 @@ The tests do not call the service. They verify the publishing rule for the named
 
 Creator tools usually need one answer first: did this asset reach subscribers? The flag lets a small team select the processing path, the counters show where work stopped, and the captured exception keeps the asset identifiers close to the failure. That is enough signal for a first release without spreading instrumentation through unrelated modules.
 
-There is no SDK dependency here. The client is a short Python HTTP helper, and its call sites read as `infrai.flags.set`, `infrai.metrics.report`, and `infrai.errors.capture`.
+There is no SDK dependency here. The client is a short Python HTTP helper, and its call sites read as `infrai.flags.set`, `infrai.metrics.report`, and `infrai.errors.capture`. You can drop it into any language with a plain REST call, no vendor lock-in.
 
 ## Wiring it up for real: Creator Content Observability Python
 
